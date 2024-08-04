@@ -35,3 +35,11 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
+    - name: List build directory contents
+      run: ls -R app/build/outputs/
+
+    - name: Upload APK
+      uses: actions/upload-artifact@v2
+      with:
+        name: app-release-apk
+        path: app/build/outputs/apk/release/app-release-unsigned.apk
